@@ -1,0 +1,22 @@
+<div class="product-container">
+    <div class="product-list">
+      <div ng-repeat="prod in products">
+        <div>
+          <img src="{{prod.img_url}}" height="160" width="150"></img>
+        </div>
+        <div class="product-description">
+          <div>{{prod.name}}</div>
+          <div>
+              <span>
+                {{ prod.discount >0 ? (prod.price -(prod.price * prod.discount/100)) : prod.price | currency : "रु"}}
+              </span>
+              <strike>{{prod.price}}</strike>
+              <span class="product-off">{{prod.discount}}% off</span>
+          </div>
+        </div>
+        <div class="cart">
+          <button id="add-to-cart" class="add-to-cart-button" ng-click="addToCart(prod.id)" value="{{prod.id}}">Add to Cart</button>
+        </div>
+      </div>
+    </div>
+</div>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html ng-app="mainApp">
+  <head>
+    <title>Shopping Cart</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="src/app/styles/app.css" rel="stylesheet">
+    <link href="src/app/styles/angular-slider.css" rel="stylesheet">
+  </head>
+  <body ng-controller="appController">
+    <header class="header-area">
+        <div class="container">
+            <i class="fa fa-2x fa-star" style="color:#FFF333;padding:8px;"></i>
+        </div>
+        <div class="container">
+            <div class="menu">
+              <div class="menu-item">
+                <sc-cart></sc-cart>
+              </div>
+              <div class="menu-item">
+                <sc-search></sc-search>
+              </div>
+            </div>
+        </div>
+      </header>
+      <section class="products-area" ng-show="!showCart">
+        <div class="product-filter">
+            <sc-filters></sc-filters>
+        </div>
+        <div class="product-section">
+            <sc-sort></sc-sort>
+            <shopping-list></shopping-list>
+        </div>
+      </section>
+      <section class="cart-view" ng-show="showCart">
+          <div class="product-list-box">
+              <div ng-repeat="(key, value) in cartList">
+                  <div class="cart-product" ng-init="cartInit(products)">
+                    <div><img src="{{productsMain[key]['img_url']}}" height="60" width="60"></div>
+                    <div style="padding-top:25px;">
+                      <div>{{products[key]['name']}}</div>
+                    </div>
+                    <div style="padding-top:20px;">
+                      <div class="flex-container">
+                          <div class="cart-product-add-sub" ng-click="deleteFromCart(key)">-</div>
+                          <div class="cart-product-number">{{value}}</div>
+                          <div class="cart-product-add-sub" ng-click="addToCart(key)">+</div>
+                      </div>
+                    </div>
+                    <div style="padding-top:25px;cursor:pointer"><span ng-click="removeItem(key)">Remove</span></div>
+                  </div>
+                  
+                </div>
+          </div>
+          <div class="price-details">
+            <div class="price-detail-block">
+              <div class="price-detail-header">PRICE DETAILS</div>
+              <div>
+                <div class="price-item-breakup">
+                  <div class="a">Price ({{payable.items}} items)</div>
+                  <div class="b">:</div>
+                  <div class="c">{{payable.price}}</div>
+                </div>
+                <div class="price-item-breakup">
+                    <div class="a">Discount</div>
+                    <div class="b">:</div>
+                    <div class="c">{{payable.discount}}</div>
+                </div>
+                <hr>
+              </div>
+              <div>
+                  <div class="price-item-breakup">
+                      <div class="a">Total Payble</div>
+                      <div class="b">:</div>
+                      <div class="c">{{ payable.price - payable.discount}}</div>
+                    </div>
+              </div>
+            </div>
+          </div>
+          
+      </section>
+  </body>
+</html>
