@@ -2,8 +2,8 @@
 angularjs webpack shopping cart
 
 
-To start project go to inside the folder and run below command
+To start project, go to the project folder and run the below commands
 
-npm install
+1) npm install
 
-npm run start
+2) npm run start
