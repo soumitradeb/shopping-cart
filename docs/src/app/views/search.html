@@ -1,0 +1,8 @@
+<div>
+  <span ng-if="displaySearchBox">
+    <input type="text" ng-model="searchBoxText" ng-keyup="search($event, searchBoxText)" placeholder="search.."/>
+  </span>
+  <span ng-click="openSearch()">
+    <i class="fa fa-1x fa-search" style="color:#ffffff;padding:10px;cursor:pointer;"></i>
+  </span>
+</div>

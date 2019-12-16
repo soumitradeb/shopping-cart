@@ -1,0 +1,13 @@
+<div>
+  <div>
+    <span>Filters</span>
+  </div>
+  <div class="slider">
+    <span style="float:left;">{{lower_price_bound}}</span><span style="float:right;">{{upper_price_bound}}</span>
+      <slider floor="0" ceiling="10000" ng-model-low="lower_price_bound" ng-model-high="upper_price_bound"></slider>
+  </div>
+  
+  <div class="filter-apply-section">
+    <button class="filter-apply-button" ng-click="applyFilter()">Apply</button>
+  </div>
+</div>
